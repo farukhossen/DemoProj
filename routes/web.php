@@ -1,14 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\StudentController;
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/posts', [PostController::class, 'index']);
-Route::get('/new', function(){
-    return view('new');
-});
-Route::get('/students', [StudentController::class, 'index']);
+use \App\Http\Controllers\studentController;
+Route::get('/', [studentController::class, 'index']);
+Route::get('/new', [studentController::class, 'new']);
+Route::get('/create', [studentController::class, 'create']);
+Route::get('/delete/{id}', [studentController::class, 'delete']);
+Route::get('/edit/{id}', [studentController::class, 'edit']);
+Route::get('/update/{id}', [studentController::class, 'update']);
